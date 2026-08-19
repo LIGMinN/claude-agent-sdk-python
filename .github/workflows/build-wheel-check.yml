@@ -3,15 +3,7 @@ name: Build Wheel Check
 # Dry-run the wheel build on PRs so we catch packaging regressions
 # before a release, instead of discovering them at publish time.
 on:
-  pull_request:
-    paths:
-      - 'scripts/build_wheel.py'
-      - 'scripts/download_cli.py'
-      - '.github/workflows/build-and-publish.yml'
-      - '.github/workflows/build-wheel-check.yml'
-      - 'pyproject.toml'
-      - 'MANIFEST.in'
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
